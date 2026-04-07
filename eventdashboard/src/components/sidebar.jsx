@@ -2,7 +2,7 @@ import React from 'react';
 import Nav from './nav';
 import './sidebar.css';
 
-import logo from "../assets/icon.png";
+import logo from "../assets/Icon.png";
 import dash from "../assets/dash.png";
 import event from "../assets/event.png";
 import booking from "../assets/booking.png";
@@ -27,13 +27,13 @@ const Sidebar = ({ currentPage }) => {
           
                                 <Nav 
                                     navtext="Dashboard" 
-                                    iconImg={dash.png} 
+                                    iconImg={dash} 
                                     s={currentPage === "dash" ? "active-link" : "normal-link"} 
                                 />
                         
                                 <Nav 
                                     navtext="Events" 
-                                    iconImg={event.png}
+                                    iconImg={event}
                                     s={currentPage === "events" ? "active-link" : "normal-link"} 
                                 />
                         

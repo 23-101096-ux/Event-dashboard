@@ -1,0 +1,44 @@
+.page-layout {
+    display: flex; 
+    width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: #F5F0E6; 
+  }
+  
+  .main-content {
+    flex: 1; 
+    display: flex;
+    flex-direction: column; 
+    margin-left: 280PX;
+    overflow-y: auto;
+  }
+  .content-padding {
+    padding: 40px; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.overview-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    text-align: left;       
+    width: 100%;
+}
+
+.overview-header h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 0 0 8px 0;
+}
+
+.overview-header p {
+    color: #6b7280;
+    font-size: 16px;
+    margin: 0 0 35px 0;
+}
