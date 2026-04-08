@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Sidebar from '../components/sidebar';
-import Header from '../components/topHeader';
 import StatCard from '../components/dashboardCard';
 import './dashboard.css';
 import DashboardCharts from '../components/dashboardCharts';
@@ -15,7 +14,6 @@ const Dashboard = () => {
         <div className="page-layout">
           <Sidebar currentPage="dash" />
           <div className="main-content">
-            <Header />
             <div className="content-padding">
             <div className="overview-header">
               <h1>Dashboard Overview</h1>

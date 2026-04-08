@@ -1,27 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './rbSection.css';
+import { supabase } from "../supabase" ;
 
-import arrow from "../assets/arrow.png";
 
-const RecentBookings = () => {
-    const bookings = [
-        { id: 1, user: "John Smith", initial: "JS", event: "Summer Music Festival 2026", tickets: 2, amount: "$300", status: "confirmed", date: "4/1/2026" },
-        { id: 2, user: "Sarah Johnson", initial: "SJ", event: "Tech Conference 2026", tickets: 1, amount: "$250", status: "confirmed", date: "4/2/2026" },
-        { id: 3, user: "Mohammed Ali", initial: "MA", event: "Art Exhibition: Modern Masters", tickets: 4, amount: "$140", status: "pending", date: "4/3/2026" },
-        { id: 4, user: "Emily Davis", initial: "ED", event: "Food & Wine Festival", tickets: 2, amount: "$240", status: "confirmed", date: "4/2/2026" },
-        { id: 5, user: "David Brown", initial: "DB", event: "Summer Music Festival 2026", tickets: 3, amount: "$450", status: "cancelled", date: "3/28/2026" },
-    ];
 
-    return (
-        <div className="table-card">
+    const RecentBookings = () => {
+        
+    const [bookings, setBookings] = useState([""]);
+    useEffect(()=>{
+    const getBookings = async ()=>{
+        const res = await supabase.from("booking").select("*");
+        setBookings(res.data)
+        console.log(res.data);
+}
+    getBookings();
+},[])
+    return (<>
+       <div className="table-card">
             <div className="table-header">
                 <div>
                     <h3>Recent Bookings</h3>
                     <p>Latest ticket bookings from users</p>
                 </div>
-                <img src={arrow} alt="" />
+                <span className="arrow-icon">↗</span>
             </div>
-
+            
             <div className="table-wrapper">
                 <table>
                     <thead>
@@ -35,30 +38,35 @@ const RecentBookings = () => {
                         </tr>
                     </thead>
                     <tbody>
+                        {/* 2. الـ map هنا بس هي اللي بتكرر الصفوف */}
                         {bookings.map((item) => (
                             <tr key={item.id}>
                                 <td>
                                     <div className="user-info">
-                                        <div className="user-circle">{item.initial}</div>
-                                        <span>{item.user}</span>
+                                        <div className="user-circle">
+                                            {item.customer?.full_name?.charAt(0) || "U"}
+                                        </div>
+                                        <span>{item.customer?.full_name || "Unknown"}</span>
                                     </div>
                                 </td>
-                                <td>{item.event}</td>
-                                <td>{item.tickets}</td>
-                                <td>{item.amount}</td>
+                                <td>{item.events?.title_en || "No Event"}</td>
+                                <td>{item.tickets_count}</td>
+                                <td>${item.total_price}</td>
                                 <td>
-                                    <span className={`status-badge ${item.status}`}>
+                                    <span className={`status-badge ${item.status?.toLowerCase()}`}>
                                         {item.status}
                                     </span>
                                 </td>
-                                <td className="date-col">{item.date}</td>
+                                <td className="date-col">
+                                    {new Date(item.created_at).toLocaleDateString()}
+                                </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
             </div>
         </div>
-    );
+</>);
 };
 
 export default RecentBookings;

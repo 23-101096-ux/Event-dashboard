@@ -1,6 +1,9 @@
 
 .content-body {
-    /* padding: 30px;  */
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   }
 
   .overview-section {
@@ -13,7 +16,11 @@
   .stats-container {
     display: flex;
     gap: 20px;
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
+    width: 100%; /* عشان يملأ عرض الصفحة المتاح */
+    flex-wrap: wrap; /* مهم جداً عشان لو الشاشة صغرت الكروت متنضغطش */
+    justify-content: space-between; /* بيوزع الكروت بالتساوي ويخلي أول وأخر كارت على الحواف */
+    margin-bottom: 30px;
   }
   
   .stat-card {
@@ -22,8 +29,9 @@
     border-radius: 24px; 
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
     flex: 1; 
-    min-width: 250px;
+    min-width: 200px;
     border: 1px solid #f1f1f1;
+    box-sizing: border-box;
   }
   
   .stat-top {

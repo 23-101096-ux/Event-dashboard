@@ -29,12 +29,14 @@ const Sidebar = ({ currentPage }) => {
                                     navtext="Dashboard" 
                                     iconImg={dash} 
                                     s={currentPage === "dash" ? "active-link" : "normal-link"} 
+                                    path="/dashboard"
                                 />
                         
                                 <Nav 
                                     navtext="Events" 
                                     iconImg={event}
                                     s={currentPage === "events" ? "active-link" : "normal-link"} 
+                                    path="/events"
                                 />
                         
                                 <Nav 
