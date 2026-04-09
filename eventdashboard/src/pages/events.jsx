@@ -3,9 +3,11 @@ import Sidebar from '../components/sidebar';
 import './events.css';
 import Search from '../components/searchFilter';
 import EventsTable from '../components/eventsTable';
+import { useNavigate } from 'react-router-dom';
 
 
 const Events = () => {
+  const navigate = useNavigate();
     return ( <>
       <div className="page-layout">
           <Sidebar currentPage="event" />
@@ -13,15 +15,14 @@ const Events = () => {
 
 
             <div className="content-padding">
-          <div className="overview-header">
+          <div className="overview-headerr">
                 <div className="header-left">
                     <h1>Events Management</h1>
                     <p>Manage all events and their details</p>
                 </div>
                 
-                <button className="add-event-btn">
-                    <span className="plus-icon">+</span> Add Event
-                </button>
+                <button className="add-event-btn" onClick={() => navigate('/events/Create')} > <span className="plus-icon">+</span> Add Event </button>
+ 
                 </div>
 
 
