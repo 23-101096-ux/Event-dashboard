@@ -22,7 +22,7 @@ const CategoriesMangement = () => {
                       <h1>Categories Management</h1>
                       <p>Organize events into categories</p>
                   </div>
-                  <button className="add-event-btn" onClick={() => navigate('/events/Create')} > <span className="plus-icon">+</span> Add Category </button>
+                  <button className="add-event-btn" onClick={() => navigate('/createCategory')}><span className="plus-icon">+</span> Add Category</button>
                   </div>
   
                <Categories />
