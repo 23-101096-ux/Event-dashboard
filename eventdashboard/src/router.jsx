@@ -6,6 +6,8 @@ import Events from './pages/events';
 import EditEvent from './pages/editEvents';
 import CreateEvent from './pages/createEvents';
 
+import BookingMangment from './pages/bookingMangment';
+
 const Routess = () => {
     return ( <>
      <BrowserRouter>
@@ -15,6 +17,7 @@ const Routess = () => {
      <Route path="/events" element={<Events />} />
      <Route path="/editEvents" element={<EditEvent />} />
      <Route path="/createEvents" element={<CreateEvent />} />
+     <Route path="/bookingMangment" element={<BookingMangment/>} />
      </Routes>
      </BrowserRouter>
     

@@ -43,6 +43,7 @@ const Sidebar = ({ currentPage }) => {
                                     navtext="Bookings" 
                                     iconImg={booking} 
                                     s={currentPage === "bookings" ? "active-link" : "normal-link"} 
+                                    path="/bookingMangment"
                                 />
                                 <Nav 
                                     navtext="Categories" 
