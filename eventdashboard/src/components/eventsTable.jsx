@@ -66,11 +66,7 @@ return (<>
                             <tr key={event.id}>
                                 <td>
                                     <div className="event-cell">
-                                        <img 
-                                            src={event.img_url || 'https://via.placeholder.com/40'} 
-                                            alt={event.title_en} 
-                                            className="event-img"
-                                        />
+                                        <img src={event.img_url} alt={event.title_en} className="event-img"/>
                                         <div className="event-names">
                                             <span className="name-en">{event.title_en}</span>
                                             <span className="name-ar">{event.title_ar}</span>

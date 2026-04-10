@@ -51,9 +51,10 @@ const Sidebar = ({ currentPage }) => {
                                     path="/CategoriesMangment"
                                 />
                                     <Nav 
-                                    navtext="Users" 
+                                    navtext="Customer" 
                                     iconImg={users} 
                                     s={currentPage === "bookings" ? "active-link" : "normal-link"} 
+                                    path="/CustomerMangment"
                                 />
                                     <Nav 
                                     navtext="Support Messages" 

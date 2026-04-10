@@ -11,6 +11,7 @@ import BookingMangment from './pages/bookingMangment';
 import CategoriesMangment from './pages/CategoriesManagement';
 import EditCategory from './pages/editCategory';
 import CreateCategory from './pages/createCategory';
+import CustomerManagment from './pages/CustomerMangment';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -26,20 +27,15 @@ root.render(
           <Routes>
 
             <Route path="/" element={<Navigate to="/dashboard" />} />
-
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/events" element={<EventsPage />} />
-            
-
             <Route path="/events/editEvent/:id" element={<EditEvent />} />
-            
-
             <Route path="/events/create" element={<CreateEvent />} />
-
             <Route path="/bookingMangment" element={<BookingMangment />} />
             <Route path="/CategoriesMangment" element={<CategoriesMangment/>} />
             <Route path="editCategory/:id" element={<EditCategory />} />
             <Route path="/createCategory" element={<CreateCategory/>} />
+            <Route path="/CustomerMangment" element={<CustomerManagment/>} />
 
           </Routes>
         </div>
