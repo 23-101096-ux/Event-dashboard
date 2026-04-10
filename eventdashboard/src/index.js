@@ -12,6 +12,7 @@ import CategoriesMangment from './pages/CategoriesManagement';
 import EditCategory from './pages/editCategory';
 import CreateCategory from './pages/createCategory';
 import CustomerManagment from './pages/CustomerMangment';
+import EditCustomer from './pages/editCustomer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -36,6 +37,7 @@ root.render(
             <Route path="editCategory/:id" element={<EditCategory />} />
             <Route path="/createCategory" element={<CreateCategory/>} />
             <Route path="/CustomerMangment" element={<CustomerManagment/>} />
+            <Route path="/editCustomer/:id" element={<EditCustomer/>} />
 
           </Routes>
         </div>

@@ -30,7 +30,7 @@ const EditCategory = () => {
     const handleUpdate = async (e) => {
         e.preventDefault();
         await supabase.from('category').update(categoryData).eq('id', id);
-        navigate('/categories'); 
+        navigate('/CategoriesMangment'); 
     };
 
     return (
