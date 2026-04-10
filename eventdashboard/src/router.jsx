@@ -7,6 +7,7 @@ import EditEvent from './pages/editEvents';
 import CreateEvent from './pages/createEvents';
 import BookingMangment from './pages/bookingMangment';
 import CategoriesMangment from './pages/CategoriesManagement';
+import EditCategory from './pages/editCategory';
 
 const Routess = () => {
     return ( <>
@@ -19,6 +20,7 @@ const Routess = () => {
      <Route path="/createEvents" element={<CreateEvent />} />
      <Route path="/bookingMangment" element={<BookingMangment/>} />
      <Route path="/CategoriesMangment" element={<CategoriesMangment/>} />
+     <Route path="/editCategory" element={<EditCategory/>} />
      </Routes>
      </BrowserRouter>
     

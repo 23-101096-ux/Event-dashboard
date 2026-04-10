@@ -51,7 +51,6 @@ const Categories = () => {
 
 
                         <div className="category-footer">
-                            <span className="events-count">15 events</span>
                             
                             <div className="category-actions">
                  
