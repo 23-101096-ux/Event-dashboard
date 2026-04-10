@@ -8,6 +8,7 @@ import EditEvent from './pages/editEvents';
 import CreateEvent from './pages/createEvent';
 import './index.css';
 import BookingMangment from './pages/bookingMangment';
+import CategoriesMangment from './pages/CategoriesManagement';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -34,6 +35,7 @@ root.render(
             <Route path="/events/create" element={<CreateEvent />} />
 
             <Route path="/bookingMangment" element={<BookingMangment />} />
+            <Route path="/CategoriesMangment" element={<CategoriesMangment/>} />
 
           </Routes>
         </div>

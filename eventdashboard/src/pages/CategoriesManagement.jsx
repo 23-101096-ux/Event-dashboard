@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import Sidebar from '../components/sidebar';
-import './bookingMangment.css';
-import Search from '../components/searchFilter';
-import RecentBookings from '../components/rbSection';
-import BookingStats from '../components/bookingStats';
+import './CategoriesManagement.css';
+import { useNavigate } from 'react-router-dom';
+import Categories from '../components/cartegoryGrid';
 
-const BookingMangment = () => {
+
+
+
+const CategoriesMangement = () => {
+   
+    const navigate = useNavigate();
       return ( <>
         <div className="page-layout">
             <Sidebar currentPage="bookings" />
@@ -15,16 +19,13 @@ const BookingMangment = () => {
               <div className="content-padding">
             <div className="overview-headerr">
                   <div className="header-left">
-                      <h1>Bookings Management</h1>
-                      <p>Manage all Bookings and their details</p>
+                      <h1>Categories Management</h1>
+                      <p>Organize events into categories</p>
                   </div>
-                
+                  <button className="add-event-btn" onClick={() => navigate('/events/Create')} > <span className="plus-icon">+</span> Add Category </button>
                   </div>
   
-
-                  <BookingStats />
-                  <Search />
-                  <RecentBookings />
+               <Categories />
   
              
               </div>
@@ -37,4 +38,4 @@ const BookingMangment = () => {
       </> );
   }
    
-  export default BookingMangment;
+  export default CategoriesMangement;

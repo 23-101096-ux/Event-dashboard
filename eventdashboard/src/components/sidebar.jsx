@@ -1,7 +1,6 @@
 import React from 'react';
 import Nav from './nav';
 import './sidebar.css';
-
 import logo from "../assets/Icon.png";
 import dash from "../assets/dash.png";
 import event from "../assets/event.png";
@@ -49,6 +48,7 @@ const Sidebar = ({ currentPage }) => {
                                     navtext="Categories" 
                                     iconImg={category} 
                                     s={currentPage === "bookings" ? "active-link" : "normal-link"} 
+                                    path="/CategoriesMangment"
                                 />
                                     <Nav 
                                     navtext="Users" 
