@@ -18,6 +18,7 @@ import SupportMessages from './pages/supportMessages';
 import Feedback from './pages/feedback';
 import Site from './pages/sitecontent';
 import EditSiteContent from './pages/editsitecontent';
+import CreateSiteContent from './pages/createsitecontent';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -43,11 +44,14 @@ root.render(
             <Route path="/createCategory" element={<CreateCategory/>} />
             <Route path="/CustomerMangment" element={<CustomerManagment/>} />
             <Route path="/editCustomer/:id" element={<EditCustomer/>} />
-            <Route path="/createCustomergit" element={<CreateCustomer/>} />
+            <Route path="/createCustomer" element={<CreateCustomer/>} />
             <Route path="/supportMessages" element={<SupportMessages/>} />
             <Route path="/feedback" element={<Feedback/>} />
             <Route path="/sitecontent" element={<Site/>} />
             <Route path="/editsitecontent/:id" element={<EditSiteContent/>} />
+            <Route path="/createsitecontent" element={< CreateSiteContent/>} />
+           
+            
 
           </Routes>
           
