@@ -14,6 +14,7 @@ import EditCustomer from './pages/editCustomer';
 import CreateCustomer from './pages/createCustomer';
 import SupportMessages from './pages/supportMessages';
 import Feedback from './pages/feedback';
+import Site from './pages/sitecontent';
 
 const Routess = () => {
     return ( <>
@@ -33,6 +34,7 @@ const Routess = () => {
      <Route path="/createCustomer" element={<CreateCustomer/>} />
      <Route path="/supportMessages" element={<SupportMessages/>} />
      <Route path="/feedback" element={<Feedback/>} />
+     <Route path="/sitecontent" element={<Site/>} />
 
      </Routes>
      </BrowserRouter>

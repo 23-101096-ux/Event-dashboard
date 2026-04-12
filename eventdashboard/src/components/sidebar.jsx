@@ -72,6 +72,7 @@ const Sidebar = ({ currentPage }) => {
                                     navtext="Site Content" 
                                     iconImg={site} 
                                     s={currentPage === "bookings" ? "active-link" : "normal-link"} 
+                                     path="/sitecontent"
                                 />
                         
         </div>
