@@ -3,6 +3,7 @@ import { supabase } from "../supabase";
 import './eventsTable.css'; 
 import edit from '../assets/edit.png';
 import deletee from '../assets/trash.png';
+import { Link } from 'react-router-dom';
 
 const SiteContentTable = () => {
    
@@ -61,7 +62,7 @@ const SiteContentTable = () => {
                                 </td>
                                 <td>
                                     <div className="action-buttons">
-                                        <button className="btn-icon"><img src={edit} alt="edit" /></button>
+                                    <Link to={"/editsitecontent/" + item.id}><button className="btn-icon"><img src={edit} alt="edit" /></button></Link>
                                         <button onClick={() => deleteItem(item.id)} className="btn-icon">
                                             <img src={deletee} alt="delete" />
                                         </button>

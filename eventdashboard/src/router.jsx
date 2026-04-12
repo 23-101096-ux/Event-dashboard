@@ -15,6 +15,7 @@ import CreateCustomer from './pages/createCustomer';
 import SupportMessages from './pages/supportMessages';
 import Feedback from './pages/feedback';
 import Site from './pages/sitecontent';
+import EditSiteContent from './pages/editsitecontent';
 
 const Routess = () => {
     return ( <>
@@ -35,6 +36,7 @@ const Routess = () => {
      <Route path="/supportMessages" element={<SupportMessages/>} />
      <Route path="/feedback" element={<Feedback/>} />
      <Route path="/sitecontent" element={<Site/>} />
+     <Route path="/editsitecontent" element={<EditSiteContent/>} />
 
      </Routes>
      </BrowserRouter>

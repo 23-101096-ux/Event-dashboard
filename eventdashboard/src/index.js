@@ -17,6 +17,7 @@ import CreateCustomer from './pages/createCustomer';
 import SupportMessages from './pages/supportMessages';
 import Feedback from './pages/feedback';
 import Site from './pages/sitecontent';
+import EditSiteContent from './pages/editsitecontent';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -46,6 +47,7 @@ root.render(
             <Route path="/supportMessages" element={<SupportMessages/>} />
             <Route path="/feedback" element={<Feedback/>} />
             <Route path="/sitecontent" element={<Site/>} />
+            <Route path="/editsitecontent/:id" element={<EditSiteContent/>} />
 
           </Routes>
           
