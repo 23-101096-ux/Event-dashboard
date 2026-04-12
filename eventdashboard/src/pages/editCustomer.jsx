@@ -12,9 +12,8 @@ const EditCustomer = () => {
         full_name: '',
         email: '',
         phone_number: '',
-        total_spent: ''
+        total_spent: '' 
     });
-
     useEffect(() => {
         const getCustomer = async () => {
             const res = await supabase.from('customer').select("*").eq("id", id);
@@ -28,9 +27,27 @@ const EditCustomer = () => {
 
     const handleUpdate = async (e) => {
         e.preventDefault();
-        await supabase.from('customer').update(userData).eq('id', id);
-        navigate('/CustomerMangment'); 
-    };
+        try {
+            const { error } = await supabase
+                .from('customer')
+                .update({
+                    full_name: userData.full_name,
+                    email: userData.email,
+                    phone_number: userData.phone_number,
+                    total_spent: userData.total_spent
+                })
+                .eq('id', id);
+                if (error) {
+                    console.error("Error updating customer:", error.message);
+                    alert("حدث خطأ أثناء التحديث");
+                } else {
+                    // التنقل يحصل بس لما التحديث ينجح
+                    navigate('/CustomerMangment'); 
+                }
+            } catch (err) {
+                console.error("Unexpected error:", err);
+            }
+            };
 
     return (
         <div className="edit-event-container">

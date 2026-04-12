@@ -4,6 +4,16 @@
     justify-content: flex-start; 
     padding-bottom: 20px;
 }
+.table-card {
+    background: white;
+    border-radius: 24px;
+    width: 96%;
+    padding: 25px;
+    margin-top: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f1f1f1;
+}
+
 
 .table-header > div {
     text-align: left; 

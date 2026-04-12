@@ -11,6 +11,7 @@ import EditCategory from './pages/editCategory';
 import CreateCategory from './pages/createCategory';
 import CustomerManagment from './pages/CustomerMangment';
 import EditCustomer from './pages/editCustomer';
+import CreateCustomer from './pages/createCustomer';
 
 const Routess = () => {
     return ( <>
@@ -27,6 +28,7 @@ const Routess = () => {
      <Route path="/createCategory" element={<CreateCategory/>} />
      <Route path="/CustomerMangment" element={<CustomerManagment/>} />
      <Route path="/editCustomer" element={<EditCustomer/>} />
+     <Route path="/createCustomer" element={<CreateCustomer/>} />
 
      </Routes>
      </BrowserRouter>
