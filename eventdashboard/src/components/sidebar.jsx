@@ -60,6 +60,7 @@ const Sidebar = ({ currentPage }) => {
                                     navtext="Support Messages" 
                                     iconImg={support} 
                                     s={currentPage === "bookings" ? "active-link" : "normal-link"} 
+                                    path="/supportMessages"
                                 />
                                     <Nav 
                                     navtext="Feedback / Reviews" 

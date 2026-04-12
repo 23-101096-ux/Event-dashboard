@@ -14,6 +14,7 @@ import CreateCategory from './pages/createCategory';
 import CustomerManagment from './pages/CustomerMangment';
 import EditCustomer from './pages/editCustomer';
 import CreateCustomer from './pages/createCustomer';
+import SupportMessages from './pages/supportMessages';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -40,6 +41,7 @@ root.render(
             <Route path="/CustomerMangment" element={<CustomerManagment/>} />
             <Route path="/editCustomer/:id" element={<EditCustomer/>} />
             <Route path="/createCustomergit" element={<CreateCustomer/>} />
+            <Route path="/supportMessages" element={<SupportMessages/>} />
 
           </Routes>
         </div>
