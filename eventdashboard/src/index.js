@@ -15,6 +15,7 @@ import CustomerManagment from './pages/CustomerMangment';
 import EditCustomer from './pages/editCustomer';
 import CreateCustomer from './pages/createCustomer';
 import SupportMessages from './pages/supportMessages';
+import Feedback from './pages/feedback';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -42,8 +43,10 @@ root.render(
             <Route path="/editCustomer/:id" element={<EditCustomer/>} />
             <Route path="/createCustomergit" element={<CreateCustomer/>} />
             <Route path="/supportMessages" element={<SupportMessages/>} />
+            <Route path="/feedback" element={<Feedback/>} />
 
           </Routes>
+          
         </div>
       </div>
     </BrowserRouter>

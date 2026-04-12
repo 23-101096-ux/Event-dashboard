@@ -66,6 +66,7 @@ const Sidebar = ({ currentPage }) => {
                                     navtext="Feedback / Reviews" 
                                     iconImg={feedback} 
                                     s={currentPage === "bookings" ? "active-link" : "normal-link"} 
+                                     path="/feedback"
                                 />
                                         <Nav 
                                     navtext="Site Content" 

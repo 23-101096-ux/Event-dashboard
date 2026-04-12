@@ -8,14 +8,9 @@ const Supportmesscom = () => {
 
     const getMessages = async () => {
 
-        const res = await supabase
-            .from("support_messages")
-            .select(`
-                *,
-                customer (
-                    full_name
-                )
-            `);
+        const res = await supabase.from("support_messages").select(`*,customer:customer_id (full_name)`);
+        
+    console.log("Supabase Result:", res);
         
         setMessages(res.data);
     };
