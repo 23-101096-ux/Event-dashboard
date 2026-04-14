@@ -1,76 +1,69 @@
 .filter-card {
-    background-color: #ffffff;
-    padding: 24px;
-    border-radius: 16px;
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow */
-    border: 1px solid #eef0f2; /* Very faint border */
-    margin-top: 20px;
-  }
-  
-  /* Search Input Container */
-  .search-container {
-    position: relative;
-    flex-direction: row;
-    flex: 2;
-  }
-  
-  .search-icon {
-    position: absolute;
-    left: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #94a3b8;
-    font-size: 14px;
-  }
-  .search-icon img {
-    position: absolute;
-    left: 15px; /* Distance from the left edge */
-    width: 18px; /* Control the size of your image icon */
-    height: 18px;
-    object-fit: contain;
-    pointer-events: none; /* User can click through the image to focus the input */
-    opacity: 0.5; /* Optional: makes the image look like a muted icon */
-  }
-  
-  .search-input {
-    width: 100%;
-    padding: 12px 16px 12px 45px; 
-    background-color: #f1f3f5;
-    border: none;
-    border-radius: 10px;
-    font-size: 14px;
-    outline: none;
-  }
-  
-  .search-input::placeholder {
-    color: #94a3b8;
-  }
-  
-  /* Dropdown Styles */
-  .select-container {
-    flex: 1;
-  }
-  
-  .filter-select {
-    width: 100%;
-    padding: 12px 16px;
-    background-color: #f1f3f5;
-    border: none;
-    border-radius: 10px;
-    font-size: 14px;
-    color: #1e293b;
-    cursor: pointer;
-    outline: none;
-    appearance: none; 
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 14px;
-  }
-  
-  .filter-select:focus, .search-input:focus {
-    background-color: #e9ecef; /* Slight darken on focus */
-  }
+  background-color: #ffffff;
+  padding: 30px 35px; 
+  border-radius: 24px; 
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03); 
+  border: 1px solid #f0f0f0; 
+  margin: 20px;
+}
+
+.search-container {
+  position: relative;
+  flex: 2.5; 
+  display: flex;
+  align-items: center;
+}
+
+.search-icon-img {
+  position: absolute;
+  left: 18px;
+  width: 18px;
+  height: 18px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 14px 16px 14px 48px; 
+  background-color: #f1f3f5; 
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #475569;
+  outline: none;
+  transition: background-color 0.2s;
+}
+
+.search-input::placeholder {
+  color: #94a3b8;
+}
+
+.select-container {
+  flex: 1;
+}
+
+.filter-select {
+  width: 100%;
+  padding: 14px 40px 14px 16px;
+  background-color: #f1f3f5;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500; 
+  color: #1e293b;
+  cursor: pointer;
+  outline: none;
+  appearance: none; 
+  /* background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e"); */
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 14px;
+}
+
+.filter-select:hover, .search-input:hover {
+  background-color: #ebedf0;
+}

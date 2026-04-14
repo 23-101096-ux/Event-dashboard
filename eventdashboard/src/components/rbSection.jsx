@@ -1,25 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import './rbSection.css';
+import './rbSection.css'; 
 import { supabase } from "../supabase";
 
 const RecentBookings = () => {
-
-    const [bookings, setBookings] = useState([]); 
+    const [bookings, setBookings] = useState([]);
 
     useEffect(() => {
         const getBookings = async () => {
-            const { data } = await supabase
-                .from('bookings')
+            const res = await supabase
+                .from('booking')
                 .select(`
-                    *,
-                    users ( full_name ),
-                    events ( title_en )
+                    id,
+                    tickets_count,
+                    total-price,
+                    status,
+                    created_at,
+                    customer:customer_id ( full_name ),
+                    events:event_id ( title_en )
                 `);
             
-
-            if (data) {
-                setBookings(data);
-            }
+          
+            console.log("Data from Supabase:", res);
+            setBookings(res.data || []);
         };
 
         getBookings();
@@ -35,7 +37,7 @@ const RecentBookings = () => {
             </div>
             
             <div className="table-wrapper">
-                <table>
+                <table className="events-table">
                     <thead>
                         <tr>
                             <th>User</th>
@@ -47,28 +49,27 @@ const RecentBookings = () => {
                         </tr>
                     </thead>
                     <tbody>
-
                         {bookings.map((item) => (
                             <tr key={item.id}>
                                 <td>
                                     <div className="user-info">
                                         <div className="user-circle">
-
-                                            {item.users && item.users.full_name ? item.users.full_name.charAt(0) : "U"}
+                                            {item.customer?.full_name?.charAt(0) || "C"}
                                         </div>
-                                        <span>{item.users && item.users.full_name ? item.users.full_name : "Unknown"}</span>
+                                        <span>{item.customer?.full_name || "Guest"}</span>
                                     </div>
                                 </td>
-                                <td>{item.events && item.events.title_en ? item.events.title_en : "No Event"}</td>
+                                <td>{item.events?.title_en || "No Event"}</td>
                                 <td>{item.tickets_count}</td>
-                                <td>${item.total_price}</td>
+                               
+                                <td className="price-bold">${item.total_price}</td>
                                 <td>
-                                    <span className={`status-badge ${item.status ? item.status.toLowerCase() : ""}`}>
+                                    <span className={`status-pill ${item.status?.toLowerCase() || 'pending'}`}>
                                         {item.status}
                                     </span>
                                 </td>
-                                <td>
-                                    {item.created_at ? new Date(item.created_at).toLocaleDateString() : ""}
+                                <td className="text-secondary">
+                                    {item.created_at ? item.created_at.slice(0, 10) : "N/A"}
                                 </td>
                             </tr>
                         ))}

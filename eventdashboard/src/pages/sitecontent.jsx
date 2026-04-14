@@ -8,7 +8,7 @@ const Site = () => {
 
       return ( <>
         <div className="page-layout">
-            <Sidebar currentPage="site" />
+        <Sidebar currentPage="sitecontent" />
             <div className="main-content">
   
   

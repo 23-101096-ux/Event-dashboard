@@ -1,13 +1,12 @@
 import React from 'react';
 import './searchFilter.css';
-
-import search from '../assets/search.png';
+import searchIcon from '../assets/search.png'; 
 
 const Search = () => {
-    return ( <>
+  return (
     <div className="filter-card">
       <div className="search-container">
-        {/* <img src={search} alt="search" /> */}
+        <img src={searchIcon} className="search-icon-img" alt="search" />
         <input 
           type="text" 
           placeholder="Search events..." 
@@ -33,7 +32,7 @@ const Search = () => {
         </select>
       </div>
     </div>
-    </> );
+  );
 }
- 
+
 export default Search;

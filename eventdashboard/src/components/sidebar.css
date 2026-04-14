@@ -4,11 +4,11 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #F5F0E8;
+    background-color: #EAE0D5;
     padding: 30px 20px;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   border-right: 1px solid rgba(0,0,0,0.05);
 }
 

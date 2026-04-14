@@ -1,97 +1,49 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import '../components/eventsTable.css';
 import { supabase } from "../supabase";
-import './editCategory.css'; 
 
-const EditCustomer = () => {
-    const { id } = useParams();
-    const navigate = useNavigate();
+const RecentBookings = () => {
+    const [bookings, setBookings] = useState([]);
 
-
-    const [userData, setUserData] = useState({
-        full_name: '',
-        email: '',
-        phone_number: '',
-        total_spent: '' 
-    });
     useEffect(() => {
-        const getCustomer = async () => {
-            const res = await supabase.from('customer').select("*").eq("id", id);
+        const getBookings = async () => {
+            // STEP 1: Get ONLY the bookings table (no joins)
+            // This proves the connection works.
+            const res = await supabase.from('bookings').select('*');
             
-            if (res.data) {
-                setUserData(res.data[0]);
-            }
+            console.log("RAW DATA CHECK:", res.data);
+            setBookings(res.data || []);
         };
-        getCustomer();
-    }, [id]);
-
-    const handleUpdate = async (e) => {
-        e.preventDefault();
-        try {
-            const { error } = await supabase
-                .from('customer')
-                .update({
-                    full_name: userData.full_name,
-                    email: userData.email,
-                    phone_number: userData.phone_number,
-                    total_spent: userData.total_spent
-                })
-                .eq('id', id);
-                if (error) {
-                    console.error("Error updating customer:", error.message);
-                    alert("حدث خطأ أثناء التحديث");
-                } else {
-                    // التنقل يحصل بس لما التحديث ينجح
-                    navigate('/CustomerMangment'); 
-                }
-            } catch (err) {
-                console.error("Unexpected error:", err);
-            }
-            };
+        getBookings();
+    }, []);
 
     return (
-        <div className="edit-event-container">
-            <div className="edit-event-card">
-                <div className="edit-header">
-                    <h2>Edit Customer</h2>
-                    <button className="close-btn" onClick={() => navigate('/CustomerMangment')}>×</button>
-                </div>
-
-                <form onSubmit={handleUpdate} className="edit-form">
-                    <div className="form-row">
-                        <div className="form-group">
-                            <label>Full Name</label>
-                            <input 
-                                type="text" 
-                                value={userData.full_name} 
-                                onChange={(e) => setUserData({ ...userData, full_name: e.target.value })} 
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label>Email Address</label>
-                            <input type="email" value={userData.email} onChange={(e) => setUserData({ ...userData, email: e.target.value })} />
-                        </div>
-                    </div>
-
-                    <div className="form-row">
-                        <div className="form-group">
-                            <label>Phone Number</label>
-                            <input type="text" value={userData.phone_number} onChange={(e) => setUserData({ ...userData, phone_number: e.target.value })} />
-                        </div>
-                        <div className="form-group">
-                            <label>Total Spent</label>
-                            <input type="text" value={userData.total_spent} onChange={(e) => setUserData({ ...userData, total_spent: e.target.value })} />
-                        </div>
-                    </div>
-
-                    <div className="form-actions">
-                        <button type="button" className="cancel-btn" onClick={() => navigate('/CustomerMangment')}>Cancel</button>
-                        <button type="submit" className="save-btn" onClick={() => navigate('/CustomerMangment')}>Save Changes</button>
-                    </div>
-                </form>
+        <div className="table-card">
+            <div className="table-header">
+                <h3>Recent Bookings</h3>
+            </div>
+            <div className="table-wrapper">
+                <table className="events-table">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {bookings.map((item) => (
+                            <tr key={item.id}>
+                                <td>{item.customer_id}</td>
+                                <td>${item.total_price}</td>
+                                <td>{item.status}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
         </div>
     );
-}
+};
 
-export default EditCustomer;
+export default RecentBookings;

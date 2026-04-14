@@ -10,7 +10,7 @@ const CustomerManagment = () => {
   const navigate = useNavigate();
       return ( <>
         <div className="page-layout">
-            <Sidebar currentPage="bookings" />
+        <Sidebar currentPage="customer" />
             <div className="main-content">
   
   

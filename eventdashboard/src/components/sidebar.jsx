@@ -14,82 +14,73 @@ import site from "../assets/site.png";
 
 const Sidebar = ({ currentPage }) => {
     return (
-          <div className="sidebar">
+        <div className="sidebar">
+            <div className="sidebar-top">
+                <img src={logo} alt="EventHub" />
+                <h1>Tickety</h1>
+            </div>
 
-                        <div className="sidebar-top">
-                        <img src={logo} alt="EventHub" />
-                        <h1>EventHub</h1>
-                        </div>
-  
+            <div className="sidebar-mid">
+                <Nav 
+                    navtext="Dashboard" 
+                    iconImg={dash} 
+                    s={currentPage === "dash" ? "active-link" : "normal-link"} 
+                    path="/dashboard"
+                />
+                <Nav 
+                    navtext="Events" 
+                    iconImg={event}
+                    s={currentPage === "events" ? "active-link" : "normal-link"} 
+                    path="/events"
+                />
+                <Nav 
+                    navtext="Bookings" 
+                    iconImg={booking} 
+                    s={currentPage === "bookings" ? "active-link" : "normal-link"} 
+                    path="/bookingMangment"
+                />
+                <Nav 
+                    navtext="Categories" 
+                    iconImg={category} 
+                    s={currentPage === "categories" ? "active-link" : "normal-link"} // عدلنا دي لـ categories
+                    path="/CategoriesMangment"
+                />
+                <Nav 
+                    navtext="Customer" 
+                    iconImg={users} 
+                    s={currentPage === "customer" ? "active-link" : "normal-link"} // عدلنا دي لـ customer
+                    path="/CustomerMangment"
+                />
+                <Nav 
+                    navtext="Support Messages" 
+                    iconImg={support} 
+                    s={currentPage === "support" ? "active-link" : "normal-link"} // عدلنا دي لـ support
+                    path="/supportMessages"
+                />
+                <Nav 
+                    navtext="Feedback / Reviews" 
+                    iconImg={feedback} 
+                    s={currentPage === "feedback" ? "active-link" : "normal-link"} // عدلنا دي لـ feedback
+                    path="/feedback"
+                />
+                <Nav 
+                    navtext="Site Content" 
+                    iconImg={site} 
+                    s={currentPage === "sitecontent" ? "active-link" : "normal-link"} // عدلنا دي لـ sitecontent
+                    path="/sitecontent"
+                />
+            </div>
 
-        <div className="sidebar-mid">
-          
-                                <Nav 
-                                    navtext="Dashboard" 
-                                    iconImg={dash} 
-                                    s={currentPage === "dash" ? "active-link" : "normal-link"} 
-                                    path="/dashboard"
-                                />
-                        
-                                <Nav 
-                                    navtext="Events" 
-                                    iconImg={event}
-                                    s={currentPage === "events" ? "active-link" : "normal-link"} 
-                                    path="/events"
-                                />
-                        
-                                <Nav 
-                                    navtext="Bookings" 
-                                    iconImg={booking} 
-                                    s={currentPage === "bookings" ? "active-link" : "normal-link"} 
-                                    path="/bookingMangment"
-                                />
-                                <Nav 
-                                    navtext="Categories" 
-                                    iconImg={category} 
-                                    s={currentPage === "bookings" ? "active-link" : "normal-link"} 
-                                    path="/CategoriesMangment"
-                                />
-                                    <Nav 
-                                    navtext="Customer" 
-                                    iconImg={users} 
-                                    s={currentPage === "bookings" ? "active-link" : "normal-link"} 
-                                    path="/CustomerMangment"
-                                />
-                                    <Nav 
-                                    navtext="Support Messages" 
-                                    iconImg={support} 
-                                    s={currentPage === "bookings" ? "active-link" : "normal-link"} 
-                                    path="/supportMessages"
-                                />
-                                    <Nav 
-                                    navtext="Feedback / Reviews" 
-                                    iconImg={feedback} 
-                                    s={currentPage === "bookings" ? "active-link" : "normal-link"} 
-                                     path="/feedback"
-                                />
-                                        <Nav 
-                                    navtext="Site Content" 
-                                    iconImg={site} 
-                                    s={currentPage === "bookings" ? "active-link" : "normal-link"} 
-                                     path="/sitecontent"
-                                />
-                        
-        </div>
-  
-        <div className="sidebar-last">
+            <div className="sidebar-last">
                 <div className="box">
                     <div className="circle">AD</div>
                     <div className="details">
-                    <b>Admin User</b>
-                    <span>admin@eventhub.com</span>
+                        <b>Admin User</b>
+                        <span>admin@eventhub.com</span>
                     </div>
                 </div>
+            </div>
         </div>
-      </div>
-       
-       
     );
 }
- 
 export default Sidebar;

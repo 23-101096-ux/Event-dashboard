@@ -26,7 +26,7 @@ const Routess = () => {
      <Route path="/dashboard" element={<Dashboard />} />
      <Route path="/events" element={<Events />} />
      <Route path="/editEvents" element={<EditEvent />} />
-     <Route path="/createEvents" element={<CreateEvent />} />
+     <Route path="/createEvents" element={<CreateEvent />} /> 
      <Route path="/bookingMangment" element={<BookingMangment/>} />
      <Route path="/CategoriesMangment" element={<CategoriesMangment/>} />
      <Route path="/editCategory" element={<EditCategory/>} />
@@ -45,5 +45,4 @@ const Routess = () => {
     
     </> );
 }
- 
 export default Routess;

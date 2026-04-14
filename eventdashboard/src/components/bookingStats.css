@@ -46,22 +46,7 @@
 }
 
 
-.card-icon.purple {
-    background-color: #f5f3ff;
-    color: #7c3aed;
-}
-
-.card-icon.green {
-    background-color: #f0fdf4;
-    color: #16a34a;
-}
-
-.card-icon.yellow {
-    background-color: #fffbeb;
-    color: #d97706;
-}
-
-.card-icon.red {
-    background-color: #fef2f2;
-    color: #dc2626;
+.card-icon.brown {
+    background-color: #8B5E3C;
+    
 }

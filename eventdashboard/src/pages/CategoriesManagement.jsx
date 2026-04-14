@@ -12,7 +12,7 @@ const CategoriesMangement = () => {
     const navigate = useNavigate();
       return ( <>
         <div className="page-layout">
-            <Sidebar currentPage="bookings" />
+            <Sidebar currentPage="categories" />
             <div className="main-content">
   
   

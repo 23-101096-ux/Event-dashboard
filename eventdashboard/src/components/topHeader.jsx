@@ -23,9 +23,9 @@ const Header = () => {
               <div className="divider"></div>
 
               <div className="header-card">
-                  <div className="circle">AD</div>
+                  <div className="circle">NY</div>
                   <div className="header-ut">
-                      <p className="header-un">Admin User</p>
+                      <p className="header-un">Nada Yasser</p>
                       <p className="header-user-role">Administrator</p>
                   </div>
               </div>

@@ -10,7 +10,7 @@ const Events = () => {
   const navigate = useNavigate();
     return ( <>
       <div className="page-layout">
-          <Sidebar currentPage="event" />
+          <Sidebar currentPage="events" />
           <div className="main-content">
 
 

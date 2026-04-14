@@ -4,8 +4,10 @@ import './eventsTable.css';
 import edit from '../assets/edit.png';
 import deletee from '../assets/trash.png';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const SiteContentTable = () => {
+    const navigate = useNavigate();
    
     const [content, setContent] = useState([]);
 
@@ -37,7 +39,7 @@ const SiteContentTable = () => {
                     <h3>Navigation Menu Items</h3>
                     <p>Manage website navigation links</p>
                 </div>
-                <button className="add-btn">+ Add Menu Item</button>
+                <button className="add-btn" onClick={() => navigate('/createsitecontent')} > + Add Menu Item </button>
             </div>
 
             <div className="table-wrapper">

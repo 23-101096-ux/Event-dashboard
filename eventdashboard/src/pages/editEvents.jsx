@@ -7,43 +7,41 @@ const EditEvent = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
-
     const [eventData, setEventData] = useState({
         title_en: '',
         title_ar: '',
-        description_en: '',
-        description_ar: '',
         date: '',
         location: '',
-        price: 0,
-        total_tickets: 100,
-        status: 'Active'
+        price: 0
     });
 
     useEffect(() => {
-
         const getData = async () => {
             const res = await supabase.from('events').select("*").eq("id", id);
             
-
-            res.data && setEventData(res.data[0]); 
+            
+            setEventData(res.data[0]);
         };
         getData();
     }, [id]);
 
     const handleUpdate = async (e) => {
         e.preventDefault();
-        await supabase.from('events').update(eventData).eq('id', id);
+
+
+        const { id: _, created_at, ...updateFields } = eventData;
+
+        await supabase.from('events').update(updateFields).eq('id', id);
+        
         navigate('/events');
     };
 
-    return (<>
-        
+    return (
         <div className="edit-event-container">
             <div className="edit-event-card">
                 <div className="edit-header">
                     <h2>Edit Event</h2>
-                    <button className="close-btn" onClick={() => navigate('/events')}>×</button>
+                    <button type="button" className="close-btn" onClick={() => navigate('/events')}>×</button>
                 </div>
 
                 <form onSubmit={handleUpdate} className="edit-form">
@@ -52,8 +50,9 @@ const EditEvent = () => {
                             <label>Title (English)</label>
                             <input 
                                 type="text" 
-                                value={eventData.title_en} 
+                                value={eventData.title_en || ''} 
                                 onChange={(e) => setEventData({ ...eventData, title_en: e.target.value })} 
+                                required
                             />
                         </div>
                         <div className="form-group">
@@ -61,8 +60,9 @@ const EditEvent = () => {
                             <input 
                                 type="text" 
                                 dir="rtl"
-                                value={eventData.title_ar} 
+                                value={eventData.title_ar || ''} 
                                 onChange={(e) => setEventData({ ...eventData, title_ar: e.target.value })} 
+                                required
                             />
                         </div>
                     </div>
@@ -72,15 +72,29 @@ const EditEvent = () => {
                             <label>Date</label>
                             <input 
                                 type="date" 
-                                value={eventData.date} 
+                         
+                                value={eventData.date?.slice(0, 10) || ''} 
                                 onChange={(e) => setEventData({ ...eventData, date: e.target.value })} 
+                                required
                             />
                         </div>
+                        <div className="form-group">
+                            <label>Location</label>
+                            <input 
+                                type="text" 
+                                value={eventData.location || ''} 
+                                onChange={(e) => setEventData({ ...eventData, location: e.target.value })} 
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div className="form-row">
                         <div className="form-group">
                             <label>Price</label>
                             <input 
                                 type="number" 
-                                value={eventData.price} 
+                                value={eventData.price || 0} 
                                 onChange={(e) => setEventData({ ...eventData, price: e.target.value })} 
                             />
                         </div>
@@ -93,7 +107,7 @@ const EditEvent = () => {
                 </form>
             </div>
         </div>
-        </>);
+    );
 }
 
 export default EditEvent;
