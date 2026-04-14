@@ -45,3 +45,31 @@
     height: auto;
     object-fit: contain;
 }
+/* --- Charts Responsive Breakpoints --- */
+
+
+@media (max-width: 768px) {
+    .charts-grid {
+        display: flex;
+        flex-direction: column; 
+        gap: 15px;
+        width: 100%;
+    }
+
+    .ccard {
+        min-width: 0 !important; 
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .chart-img-cont {
+        width: 100%;
+        overflow: hidden; 
+    }
+
+    .chart-img-cont img {
+        width: 100% !important;
+        height: auto !important;
+    }
+}
