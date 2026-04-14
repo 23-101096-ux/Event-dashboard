@@ -18,8 +18,6 @@ const EditEvent = () => {
     useEffect(() => {
         const getData = async () => {
             const res = await supabase.from('events').select("*").eq("id", id);
-            
-            
             setEventData(res.data[0]);
         };
         getData();
@@ -28,10 +26,13 @@ const EditEvent = () => {
     const handleUpdate = async (e) => {
         e.preventDefault();
 
-
-        const { id: _, created_at, ...updateFields } = eventData;
-
-        await supabase.from('events').update(updateFields).eq('id', id);
+        await supabase.from('events').update({
+            title_en: eventData.title_en,
+            title_ar: eventData.title_ar,
+            date: eventData.date,
+            location: eventData.location,
+            price: eventData.price
+        }).eq('id', id);
         
         navigate('/events');
     };
@@ -72,8 +73,8 @@ const EditEvent = () => {
                             <label>Date</label>
                             <input 
                                 type="date" 
-                         
-                                value={eventData.date?.slice(0, 10) || ''} 
+                               
+                                value={eventData.date ? eventData.date.slice(0, 10) : ''} 
                                 onChange={(e) => setEventData({ ...eventData, date: e.target.value })} 
                                 required
                             />

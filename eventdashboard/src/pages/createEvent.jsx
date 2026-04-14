@@ -10,23 +10,26 @@ const CreateEvent = () => {
     const [titleAr, setTitleAr] = useState("");
     const [date, setDate] = useState("");
     const [price, setPrice] = useState(0);
+    const [location, setLocation] = useState("");
 
     const createEvent = async (e) => {
-       
         e.preventDefault(); 
 
-
+        // I am adding every column that is usually "Required" in Supabase
         await supabase.from("events").insert([
             {
                 title_en: titleEn,
                 title_ar: titleAr,
                 date: date,
-               
                 price: price, 
+                location: location,
+                // These 3 columns are likely "NOT NULL" in your Supabase settings:
+                description_en: titleEn, 
+                description_ar: titleAr,
+                img_url: "https://via.placeholder.com/150",
             }
         ]);
 
-      
         navigate('/events');
     };
 
@@ -71,6 +74,18 @@ const CreateEvent = () => {
                             />
                         </div>
                         <div className="form-group">
+                            <label>Location</label>
+                            <input 
+                                type="text" 
+                                placeholder="Enter location"
+                                onChange={(e) => setLocation(e.target.value)} 
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div className="form-row">
+                        <div className="form-group">
                             <label>Price</label>
                             <input 
                                 type="number" 
@@ -81,13 +96,8 @@ const CreateEvent = () => {
                     </div>
 
                     <div className="form-actions">
-                        <button type="button" className="cancel-btn" onClick={() => navigate('/events')}>
-                            Cancel
-                        </button>
-                       
-                        <button type="submit" className="save-btn">
-                            Create Event
-                        </button>
+                        <button type="button" className="cancel-btn" onClick={() => navigate('/events')}>Cancel</button>
+                        <button type="submit" className="save-btn">Create Event</button>
                     </div>
                 </form>
             </div>
